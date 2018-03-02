@@ -2094,9 +2094,9 @@ sequelize-cli@^4.0.0:
     umzug "^2.1.0"
     yargs "^8.0.2"
 
-sequelize@^4.34.1:
-  version "4.34.1"
-  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-4.34.1.tgz#d8dded3ec86c43ee8bf822f39946413cbba832fb"
+sequelize@^4.35.1:
+  version "4.35.1"
+  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-4.35.1.tgz#10b88439726980432402d763aeec96914fc86c15"
   dependencies:
     bluebird "^3.5.0"
     cls-bluebird "^2.1.0"
@@ -2113,7 +2113,7 @@ sequelize@^4.34.1:
     terraformer-wkt-parser "^1.1.2"
     toposort-class "^1.0.1"
     uuid "^3.2.1"
-    validator "^9.4.0"
+    validator "^9.4.1"
     wkx "^0.4.1"
 
 serve-static@1.13.1:
@@ -2600,7 +2600,7 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^2.0.4"
     spdx-expression-parse "^3.0.0"
 
-validator@^9.4.0:
+validator@^9.4.1:
   version "9.4.1"
   resolved "https://registry.yarnpkg.com/validator/-/validator-9.4.1.tgz#abf466d398b561cd243050112c6ff1de6cc12663"
 

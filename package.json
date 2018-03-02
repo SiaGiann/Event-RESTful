@@ -1,5 +1,5 @@
 {
-  "name": "scoreboard-api",
+  "name": "event",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -14,10 +14,12 @@
     "express": "^4.16.2",
     "pg": "6",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.34.1",
+    "sequelize": "^4.35.1",
     "sequelize-cli": "^4.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.15.1"
-  }
+  },
+  "repository": "https://github.com/SiaGiann/Event-RESTfull.git",
+  "author": "SiaGiann <siayiannaki@gmail.com>"
 }
