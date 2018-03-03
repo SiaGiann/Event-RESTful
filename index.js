@@ -2,6 +2,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const db = require('./models')
+const { Op } = require('sequelize');
+
 
 const port = process.env.PORT || 3030
 
@@ -9,63 +11,30 @@ const app = express()
   .use(cors())
   .use(bodyParser.json())
 
-const { Player } = db
+const { Event } = db
 
-app.get('/players', (req, res) => {
-  const players = Player
-    .findAll()
-    .then((players) => {
-      res.json(players)
-    })
-    .catch((err) => {
-      console.error(err)
-      res.status(500)
-      res.json({ message: 'Oops! There was an error getting the players. Please try again' })
-    })
+app.get('/', (req, res) => {
+  res.json({message: "Hello!"})
 })
 
-app.get('/players/:id', (req, res) => {
-  const players = Player
-    .findById(req.params.id)
-    .then((player) => {
-      if (player) {
-        res.json(player)
-      } else {
-        res.status(404)
-        res.json({ message: 'Player not found!' })
+app.get('/events', (req, res) => {
+  const events = Event
+    .findAll({
+      attributes: ['title', 'start_date', 'end_date'],
+      where: {
+        start_date: {
+          [Op.gt]: new Date()
+        }
       }
     })
-    .catch((err) => {
+    .then(events => {
+      console.log(events)
+      res.json(events)
+    })
+    .catch(err => {
       console.error(err)
       res.status(500)
-      res.json({ message: 'Oops! There was an error getting the player. Please try again' })
-    })
-})
-
-app.patch('/players/:id', (req, res) => {
-  const players = Player
-    .findById(req.params.id)
-    .then((player) => {
-      if (player) {
-        player.score = req.body.score
-        player
-          .save()
-          .then((updatedPlayer) => {
-            res.json(updatedPlayer)
-          })
-          .catch((err) => {
-            res.status(422)
-            res.json({ message: err.message })
-          })
-      } else {
-        res.status(404)
-        res.json({ message: 'Player not found!' })
-      }
-    })
-    .catch((err) => {
-      console.error(err)
-      res.status(500)
-      res.json({ message: 'Oops! There was an error getting the player. Please try again' })
+      res.json({ message: "No events found!"})
     })
 })
 
